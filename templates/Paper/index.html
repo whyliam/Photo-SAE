@@ -1,0 +1,102 @@
+{%for id, title, subname, article, color, hero, time, location, content, tags, photos, heros in msgs%}
+<!DOCTYPE html>
+<html lang="en">
+<header>
+<title>{{title}}</title>
+  {% block header %}
+  {% include "/Home/header.html"%}
+  {% endblock %}
+</header>
+    
+    <body class="single single-post postid-4490 single-format-standard" data-twttr-rendered="true">
+        <!-- AdPacks.com Ad Code -->
+        <!-- /AdPacks.com Ad Code -->
+        <!-- wrapper -->
+        <div id="wrapper">
+            <article class="{{article}} {{color}}">
+                <div class="divider-top">
+                    &nbsp;
+                </div>
+                <div class="inner">
+                    <!-- photo -->
+                    <section>
+                        <header>
+                            <h1>
+                                {{title}}
+                            </h1>
+                        </header>
+                        <footer>
+                            <time datetime="{{time}}">
+                                <span>
+                                    {{time}}
+                                </span>
+                            </time>
+                            <div class="comments-link">
+                                <a href="#" title="Comment on Lola">{{location}}</a>
+                            </div>
+                        </footer>
+                        <div class="clearfix">
+                        </div>
+                        <div class="post">
+                            <p>{{content}}
+                        </div>
+                    </section>
+                    <div class="images">
+		{%for href, src, alt in heros%}
+		<a href="{{href}}" rel="gallery-{{id}}" class="cboxElement" ><img src="{{href}}" alt="{{alt}}" style="max-width: 97.2527473%;"/></a> 
+		{%endfor%} 
+		{%for href, srcs, alts in photos%}
+		<a href="{{href}}" rel="gallery-{{id}}" class="cboxElement" ><img src="{{href}}" alt="{{alt}}" style="max-width: 97.2527473%;"/>
+		</a> 
+		{%endfor%}               
+                    </div>
+                    <div class="tags">
+                    {%for tag in tags%}
+                        <a href="http://girlwithacamera.co.uk/tag/{{tag}}/" rel="tag">
+                            {{tag}}
+                        </a>
+                    {%endfor%}
+                    </div>
+                    <!-- /photo -->
+                    <!-- blog -->
+                    <div class="clearfix">
+                    </div>
+                </div>
+                <div class="divider-bottom">
+                    &nbsp;
+                </div>
+            </article>
+            <!-- comments -->
+            <article id="comments" class="content">
+            <!-- 多说评论框 start -->
+    <div class="inner ds-thread" data-thread-key="{{id}}" data-title="{{title}}" data-url="{{time}}/{{title}}"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"naalnalbum"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+<!-- 多说公共JS代码 end -->
+</article>
+            <!-- /comments -->
+    <footer id="footer"> 
+      {% block footer %}
+      {% include "Home/footer.html"%}
+      {% endblock %}
+    </footer>
+
+    <header role="banner">
+     {% block banner %}
+     {% include "Home/banner.html"%}
+     {% endblock %}
+   </header>
+ </div>
+</body>
+</html>{%endfor%}

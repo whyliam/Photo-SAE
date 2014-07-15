@@ -1,0 +1,762 @@
+/* @group all mobile devices
+================================================================================= */
+
+@media all and (max-width: 1024px) {
+
+	html {
+		-webkit-text-size-adjust: none;
+	}
+	
+	.content {
+		font-size: 1.2em;
+	}
+	
+	.content img {
+		max-width: 97.2527473%;
+		padding: 1.3736264%;
+		height: auto;
+	}
+	
+	article section footer {
+		font-size: .85em;
+	}
+	
+	 {
+		width: 100%;
+	}
+	
+	.archive-post img {
+		padding: 2.5%;
+	}
+	
+	.content iframe,
+	.content object {
+		max-width: 100%;
+	}
+
+}
+
+/* @end */
+
+/* @group large landscape tablets
+================================================================================= */
+
+@media all and (max-width: 1024px) {
+
+	#ad {
+		display: none;
+	}
+
+}
+
+/* @end */
+
+/* @group large portrait tablets
+================================================================================= */
+
+@media all and (max-width: 959px) {
+
+	#wrapper {
+		position: relative;
+		width: 768px;
+		margin: 0 auto;
+		-moz-box-shadow: 0 0 0 1px rgba(0, 0, 0, .1);
+		-webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, .1);
+		box-shadow: 0 0 0 1px rgba(0, 0, 0, .1);
+	}
+
+	header[role="banner"] {
+		width: 100%;
+		height: 100%;
+		margin: 0;
+	}
+	
+	#header-top {
+		position: absolute;
+		width: 100%;
+		height: 193px;
+		top: 0;
+		left: 0;
+		margin-left: 0;
+		background: url('../imgs/header-tablet.png') no-repeat 0 0;
+	}
+	
+	#header-bottom {
+		display: none;
+	}
+	
+	header[role="banner"] nav {
+		position: absolute;
+		top: 49px;
+		left: 405px;
+		width: 22px;
+		height: 16px;
+	}
+	
+	header[role="banner"] nav li {
+		float: left;
+		display: inline;
+		width: 22px;
+		height: 20px;
+		margin-bottom: 8px;
+		overflow: hidden;
+	}
+	
+	header[role="banner"] nav li a {
+		float: left;
+		display: block;
+		width: 22px;
+		height: 0;
+		padding-top: 20px;
+	}
+	
+	header[role="banner"] nav li#nav-twitter {
+		margin-bottom: 0;
+	}
+	
+	#logo {
+		width: 355px;
+		height: 130px;
+		margin: 20px 0 0 20px;
+	}
+	
+	#logo a {
+		width: 355px;
+		padding-top: 130px;
+	}
+	
+	#ad {
+		display: block;
+		position: absolute;
+		top: 22px;
+		left: 458px;
+		width: 300px;
+	}
+	
+	body .one .bsa_it_ad .bsa_it_i {
+		display: block;
+		padding: 0;
+		float: left;
+		margin: 0 10px 0 0;
+	}
+	
+	body .one .bsa_it_ad .bsa_it_i img {
+		padding: 0;
+		border: none;
+	}
+	
+	body .one .bsa_it_ad .bsa_it_t {
+		padding: 5px 0;
+		font-size: 12px;
+	}
+	
+	body .one .bsa_it_ad .bsa_it_d {
+		font-size: 11px;
+	}
+	
+	body #bsap_aplink,
+	body #bsap_aplink:hover {
+		position: relative;
+		display: block;
+		font-size: 10px;
+		margin: -15px 0 0 190px;
+		text-align: left;
+	}
+	
+	article:first-of-type {
+		padding-top: 193px;
+	}
+	
+	article:first-of-type .divider-top {
+		display: none;
+	}
+	
+	article .inner, footer .inner {
+		width: 94.7916667%;
+		margin: 0 auto;
+		padding: 20px 2.6041667% 0;
+		text-align: left;
+		overflow: hidden;
+	}
+	
+	article.landscape.full section {
+		float: left;
+		display: inline;
+		width: 724px;
+		margin: 0 10px 15px;
+	}
+	
+	.single article.full section,
+	.page article.full section {
+		width: 100%;
+		margin: 0 0 15px;
+	}
+	
+	article.landscape .thumbnails {
+		width: 352px;
+	}
+	
+	article.landscape section {
+		width: 376px;
+	}
+	
+	article.portrait section  {
+		width: 238px;
+		margin-right: 0;
+	}
+	
+	article.landscape.blog section, article.landscape.full.blog section {
+		width: 372px;
+	}
+	
+	article .thumbnails.full {
+		width: 100%;
+	}
+	
+	#archive-title h1 {
+		margin: -10px 0 20px;
+	}
+	
+	.content .wp-pagenavi {
+		margin: 10px 0 28px 0;
+	}
+	
+	.single article.landscape .hero {
+		margin-bottom: 20px;
+	}
+	
+	article .images a {
+		margin-bottom: 20px;
+	}
+	
+	.archive-post {
+		width: 200px;
+	}
+	
+	.archive-post img {
+		width: 190px;
+		height: auto;
+	}
+	
+	#comments .commentlist li {
+		width: 100% !important;
+	}
+	
+	#comments .commentlist li.depth-1 {
+		width: 100% !important;
+	}
+	
+	#comments .commentlist li.depth-2,
+	#comments .commentlist li.depth-3,
+	#comments .commentlist li.depth-4,
+	#comments .commentlist li.depth-5,
+	#comments .commentlist li.depth-6,
+	#comments .commentlist li.depth-7,
+	#comments .commentlist li.depth-8,
+	#comments .commentlist li.depth-9,
+	#comments .commentlist li.depth-10 {
+		width: 97.2527473% !important;
+	}
+	
+	#commentform textarea {
+		width: 98.6263736%;
+		padding: .6868132%;
+	}
+
+	.package {
+		height: 480px;
+	}
+
+	.content .testimonial p {
+		font-size: 1.4em;
+	}
+
+	.content .testimonial h6 {
+		font-size: 1.4em;
+	}
+	
+	footer .inner {
+		font-size: 1.1em;
+		padding: 20px 2.6041667% 10px;
+	}
+	
+	footer nav {
+		float: left;
+		width: 100%;
+		text-align: left;
+	}
+	
+	#logo-footer {
+		display: none;
+	}
+
+}
+
+/* @end */
+
+/* @group small tablets
+================================================================================= */
+
+@media all and (max-width: 767px) {
+
+	#wrapper {
+		width: 600px;
+	}
+
+	#ad {
+		display: none;
+	}
+	
+	article.landscape.full section {
+		width: 550px;
+		margin: 0 10px 15px;
+	}
+	
+	.single article.full section,
+	.page article.full section {
+		width: 100%;
+		margin: 0 0 15px;
+	}
+	
+	article.landscape.full section {
+		width: 100%;
+		margin: 0;
+	}
+	
+	article.landscape .thumbnails {
+		width: 100%;
+	}
+	
+	article.landscape section {
+		width: 100%;
+	}
+	
+	article.portrait section {
+		width: 100%;
+		margin-right: 0;
+	}
+	
+	article.portrait .hero {
+		width: 100%;
+		margin-bottom: 20px;
+	}
+	
+	article.landscape.full.blog section {
+		width: 100%;
+	}
+	
+	article .thumbnails.full {
+		width: 100%;
+	}
+	
+	.content .question h1, .content .question .post {
+		width: 480px;
+	}
+	
+	.single .content .question h1, .single .content .question .post {
+		width: 490px;
+	}
+	
+	.archive-post {
+		float: none;
+		width: 96%;
+		padding: 2%;
+	}
+	
+	.archive-post img {
+		float: left;
+		display: inline;
+		width: auto;
+		height: auto;
+		margin: 0 10px 0 0;
+		padding: 5px;
+	}
+	
+	.archive-post h3 {
+		display: inline;
+	}
+	
+	#search #s {
+		width: 470px;
+	}
+	
+	#archive-tags,
+	#archive-categories {
+		float: none;
+		display: block;
+		width: 100%;
+	}
+	
+	.thumbnails {
+		display: none !important;
+	}
+
+}
+
+/* @end */
+
+/* @group landscape phones
+================================================================================= */
+
+@media all and (max-width: 599px) {
+
+	#wrapper {
+		width: 480px;
+	}
+	
+	#header-top {
+		position: absolute;
+		width: 100%;
+		height: 139px;
+		top: 0;
+		left: 0;
+		margin-left: 0;
+		background: url('../imgs/header-phone-landscape.png') no-repeat 0 0;
+	}
+	
+	#header-bottom {
+		display: none;
+	}
+	
+	header[role="banner"] nav {
+		position: absolute;
+		top: 15px;
+		left: 283px;
+		width: 24px;
+		height: 89px;
+	}
+	
+	header[role="banner"] nav li {
+		float: left;
+		display: inline;
+		width: 22px;
+		height: 17px;
+		margin-bottom: 8px;
+		overflow: hidden;
+	}
+	
+	header[role="banner"] nav li a {
+		float: left;
+		display: block;
+		width: 22px;
+		height: 0;
+		padding-top: 17px;
+	}
+	
+	header[role="banner"] nav li#nav-twitter {
+		margin-bottom: 0;
+	}
+	
+	#logo {
+		width: 250px;
+		height: 89px;
+		margin: 15px 0 0 15px;
+	}
+	
+	#logo a {
+		width: 250px;
+		padding-top: 89px;
+	}
+	
+	article .hero img, article .images img {
+		padding: 1.1363636%;
+	}
+	
+	.content img {
+		max-width: 97.7272727%;
+		padding: 1.1363636%;
+		height: auto;
+	}
+	
+	.content .question h1, .content .question .post {
+		width: 370px;
+	}
+	
+	.single .content .question h1, .single .content .question .post {
+		width: 370px;
+	}
+	
+	article:first-of-type {
+		padding-top: 137px;
+	}
+	
+	article .inner, footer .inner {
+		width: 91.6666667%;
+		padding: 20px 4.1666667% 0;
+	}
+
+	.archive-post {
+		float: none;
+		width: 96%;
+		padding: 2%;
+	}
+	
+	.archive-post img {
+		padding: 5px;
+	}
+	
+	#search #s {
+		width: 340px;
+	}
+	
+	#comments .commentlist .children {
+		margin-left: 20px;
+	}
+	
+	#comments .commentlist .children li {
+		padding: 0;
+		width: 100% !important;
+		background: transparent;
+	}
+	
+	#comments .children .commentmetadata {
+		left: 50px;
+	}
+	
+	#commentform label {
+		float: left;
+		display: block;
+		width: 100%;
+		margin-left: 0;
+		padding-top: 0;
+	}
+	
+	#commentform p.subscribe-to-comments label {
+		width: 100%;
+	}
+	
+	.content h1 {
+		margin: 0;
+		font: 2.6em/1em  Arial, Helvetica, Geneva, sans-serif;
+	}
+	
+	.content .question h1 {
+		font: 1.6em/1.3em  Arial, Helvetica, Geneva, sans-serif;
+	}
+	
+	.content .quote h1 {
+		clear: left;
+		font: 2.6em/1.4em BlackJack, Georgia, "Times New Roman", Times, serif;
+	}
+	
+	.content .alignleft,
+	.content .alignright,
+	.content .aligncenter {
+		float: none;
+		display: block;
+		margin: 0 0 20px;
+		max-width: 96.6666667% !important;
+		padding: 1.6666667% !important;
+	}
+	
+	.content .wpcf7 input.wpcf7-text, .content .wpcf7 textarea {
+		width: 96.6666667%;
+		padding: 1.6666667%;
+	}
+
+	#packages {
+		padding-top: 15px;
+	}
+
+	.package {
+		float: left;
+		width: 90%;
+		height: auto;
+		margin: 0 0 0 5%;
+		padding: 30px 0 0;
+	}
+
+	.package.package-highlight {
+		width: 100%;
+		margin: 0;
+		padding: 30px 0 0;
+	}
+
+	.content .package ul {
+		padding-top: 20px;
+	}
+
+	.content .package h3 {
+		padding-bottom: 20px;
+	}
+
+	.content .testimonial .tnail {
+		float: right;
+		margin: 0 0 20px 20px;
+	}
+
+}
+
+/* @end */
+
+/* @group portrait phones
+================================================================================= */
+
+@media all and (max-width: 479px) {
+
+	#wrapper {
+		width: 320px;
+	}
+
+	#header-top {
+		background: url('../imgs/header-phone.png') no-repeat 0 0;
+	}
+
+	article .hero {
+		width: 100%;
+	}
+	
+	article .hero img, article .images img {
+		padding: 1.6666667% !important;
+	}
+	
+	.content img {
+		max-width: 96.6666667% !important;
+		padding: 1.6666667% !important;
+		height: auto;
+	}
+	
+	article.landscape.full section {
+		width: 100%;
+	}
+	
+	article.landscape section {
+		width: 100%;
+	}
+	
+	article.portrait section {
+		width: 100%;
+	}
+	
+	.content .question h1, .content .question .post {
+		width: 240px;
+	}
+	
+	.single .content .question h1, .single .content .question .post {
+		width: 240px;
+	}
+	
+	article .inner, footer .inner {
+		width: 93.75%;
+		padding: 20px 3.125% 0;
+	}
+
+	.archive-post {
+		float: none;
+		width: 96%;
+		padding: 2%;
+		text-align: center;
+	}
+	
+	.archive-post img {
+		float: none;
+		padding: 5px;
+	}
+	
+	article.landscape .hero {
+		margin-bottom: 10px;
+	}
+	
+	article.landscape.blog .hero {
+		margin: 0 0 10px 0;
+	}
+	
+	#search #s {
+		width: 205px;
+	}
+
+}
+
+/* @end */
+
+/* @group retina display devices
+================================================================================= */
+
+@media  only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 13/10), only screen and (min-resolution: 120dpi) {
+
+	article section footer time {
+		background: url('../imgs/icon-time@2x.png') no-repeat 0 0;
+		background-size: 16px 16px;
+	}
+	
+	article section footer .comments-link {
+		background: url('../imgs/icon-comments@2x.png') no-repeat 0 0;
+		background-size: 16px 16px;
+	}
+	
+	article .tags {
+		background: url('../imgs/divider-dashed@2x.png') repeat-x 0 0;
+		background-size: 6px 2px;
+	}
+	
+	article .tags a {
+		background: url('../imgs/icon-tag@2x.png') no-repeat 0 0;
+		background-size: 16px 16px;
+	}
+	
+	article .post,
+	article section footer,
+	#archive-posts,
+	#archive-categories ul,
+	#search {
+		background: url('../imgs/divider-dashed@2x.png') repeat-x 0 0;
+		background-size: 6px 2px;
+	}
+	
+	#comments h3,
+	#comments .commentlist li.thread-even,
+	#comments .commentlist li.thread-odd {
+		background: url('../imgs/divider-dashed@2x.png') repeat-x 0 100%;
+		background-size: 6px 2px;
+	}
+	
+	.divider-top {
+		background: url('../imgs/divider@2x.png') repeat-x 0 -1px;
+		background-size: 1px 2px;
+	}
+	
+	.divider-bottom {
+		background: url('../imgs/divider@2x.png') repeat-x 0 0;
+		background-size: 1px 2px;
+	}
+	
+	#comments a.comment-reply-link {
+		background: url("../imgs/comments-reply@2x.png") no-repeat 0 0;
+		background-size: 16px 16px;
+	}
+	
+	#comments .commentlist .children li {
+		background: url('../imgs/comments-thread@2x.png') no-repeat 0 -10px;
+		background-size: 14px 35px;
+	}
+	
+}
+
+@media all and (max-width: 959px) and (-webkit-min-device-pixel-ratio: 2) {
+
+	#header-top {
+		background: url('../imgs/header-tablet@2x.png') no-repeat 0 0;
+		background-size: 768px 193px;
+	}
+
+}
+
+@media all and (max-width: 599px) and (-webkit-min-device-pixel-ratio: 2) {
+
+	#header-top {
+		background: url('../imgs/header-phone-landscape@2x.png') no-repeat 0 0;
+		background-size: 480px 139px;
+	}
+
+}
+
+@media all and (max-width: 479px) and (-webkit-min-device-pixel-ratio: 2) {
+
+	#header-top {
+		background: url('../imgs/header-phone@2x.png') no-repeat 0 0;
+		background-size: 320px 139px;
+	}
+
+}
+
+/* @end */

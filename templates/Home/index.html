@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <header>
+  <title>Why · Liam · Photo</title>
+    {% block header %}
+  {% include "Home/header.html"%}
+  {% endblock %}
+  </header>
+
+<body class="home blog">
+  {% block colorbox %}
+  {% include "Home/colorbox.html"%}
+  {% endblock %}
+  <div id="wrapper">
+    <!-- My Self -->
+    {% block myself %}
+    {% include "Home/myself.html"%}
+    {% endblock %}
+    <!-- End my self -->
+
+    <!-- wrapper -->
+    {% for id, title, subname, article, color, hero, time, location, content, photos, heros in msgs%}
+
+    {% if article == "content portrait full" %}
+    {% import 'Home/content_portrait_full.html' as cpf %} 
+    {{ cpf.input(id, title, subname, article, color, time, location, content, photos, heros) }}
+
+    {% elif article == "content landscape" %}
+    {% import 'Home/content_landscape.html' as cl %} 
+    {{ cl.input(id, title, subname, article, color,  time, location, content, photos, heros)}}
+
+    {% elif article == "content landscape full" %}
+    {% import 'Home/content_landscape_full.html' as clf %} 
+    {{ clf.input(id, title, subname, article, color,  time, location, content, photos, heros)}}
+
+    {% elif article == "content landscape full blog" %}
+    {% import 'Home/content_landscape_full_blog.html' as clfb %} 
+    {{ clfb.input(id, title, subname, article, color, time, location, content, photos, heros)}}
+
+
+    {% endif%}
+
+    {% endfor %}
+    <!-- End wrapper -->
+    <article class="content">
+      <div class="divider-top">&nbsp;</div>
+      <div class="inner">
+        <div class="wp-pagenavi" url="./"  
+currentPage="{{currentPage}}" 
+pageCount="{{pageCount}}" >
+          <form name="pageform" method="post"></form>
+          </div>
+      </div>
+      <div class="divider-top">&nbsp;</div>
+    </article>
+    <footer id="footer">
+      {% block footer %}
+      {% include "Home/footer.html"%}
+      {% endblock %}
+    </footer>
+
+    <header role="banner">
+      {% block banner %}
+     {% include "Home/banner.html"%}
+     {% endblock %}
+    </header>
+  </div>
+  <script>
+ $(function(){
+ $(".wp-pagenavi").my_page("pageform");
+});
+</script>
+</body>
+</html>
