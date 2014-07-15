@@ -1,0 +1,90 @@
+article, .archive-post {
+  background: url("../imgs/pattern.png") repeat 0 0;
+}
+
+.divider-top {
+  background: url("../imgs/divider@2x.png") repeat-x 0 -1px;
+  background-size: 1px 2px;
+  min-height: 30px;
+}
+
+.divider-bottom {
+  background-size: 1px 2px;
+  min-height: 30px;
+}
+
+section a:link, section a:visited, section a:active {
+  color: #333;
+  text-decoration: none;
+  -moz-transition: color 0.2s ease-in;
+  -webkit-transition: color 0.2s ease-in;
+  transition: color 0.2s ease-in;
+}
+
+section .post {
+  background: url("../imgs/divider-dashed@2x.png") repeat-x 0 0;
+  background-size: 6px 2px;
+  padding-top: 5px;
+}
+
+article img {
+  background: #f2f8f9;
+  padding: 10px;
+  width: 100%;
+}
+
+#masonry {
+  clear: both;
+  position: relative;
+}
+
+.item-box {
+  width: 162px;
+  margin: 0px 10px 110px 0px;
+}
+
+.item-box img {
+  padding: 5px;
+}
+
+/*article color*/
+article.orange, .archive-post.orange {
+  text-shadow: 0 1px 1px #ded1c6;
+  background-color: #e3c3a9;
+}
+
+article.blue, .archive-post.blue {
+  text-shadow: 0 1px 1px #c9cdce;
+  background-color: #c7cfd1;
+}
+
+article.yellow, .archive-post.yellow {
+  text-shadow: 0 1px 1px #fffceb;
+  background-color: #fff4d4;
+}
+
+article.pink, .archive-post.pink {
+  text-shadow: 0 1px 1px #dbc1bf;
+  background-color: #e7b2ae;
+}
+
+article.brown, .archive-post.brown {
+  text-shadow: 0 1px 1px #f0e9df;
+  background-color: #d3c6b6;
+}
+
+/*helf picture blog*/
+article.hpb section {
+  display: inline;
+  margin-top: -20px;
+}
+
+/*full picture blog*/
+article.fpb section {
+  display: inline;
+  width: 362px;
+  margin-bottom: 15px;
+  margin-top: -20px;
+}
+
+/*# sourceMappingURL=style.css.map */

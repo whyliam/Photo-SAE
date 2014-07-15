@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+  <header>
   <title>{{g.title}}</title>
 
-  {% include "header.html"%}
+  {% include "Home/header.html"%}
 
-  </head>
+  </header>
 
-<body>
+<body class="home blog">
 
-  <div>
+  {% include "Home/colorbox.html"%}
+
+  <div id="wrapper">
     <!-- My Self -->
     {% if currentPage == 1 %}
     {% include "Home/myself.html"%}
@@ -19,12 +21,12 @@
     <!-- wrapper -->
     {% for id, title, article, color, time, location, content, photos, heros in msgs%}
 
-    {% if article == "fpb" %}
-    {% import 'Home/article_fpb.html' as cpf %} 
+    {% if article == "content portrait full" %}
+    {% import 'Home/content_portrait_full.html' as cpf %} 
     {{ cpf.input(id, title, article, color, time, location, content, photos, heros) }}
 
-    {% elif article == "hpb" %}
-    {% import 'Home/article_hpb.html' as cl %} 
+    {% elif article == "content landscape" %}
+    {% import 'Home/content_landscape.html' as cl %} 
     {{ cl.input(id, title, article, color,  time, location, content, photos, heros)}}
 
     {% elif article == "content landscape full" %}
@@ -40,7 +42,7 @@
 
     {% endfor %}
     <!-- End wrapper -->
-<!--     <article class="content">
+    <article class="content">
       <div class="divider-top">&nbsp;</div>
       <div class="inner">
         <div class="wp-pagenavi" url="./"  
@@ -51,36 +53,22 @@
       </div>
       <div class="divider-top">&nbsp;</div>
     </article>
- -->    
-<!--     <footer id="footer">
+    <footer id="footer">
       {% block footer %}
       {% include "Home/footer.html"%}
       {% endblock %}
     </footer>
- -->
-<!--     <header role="banner">
+
+    <header role="banner">
       {% block banner %}
      {% include "Home/banner.html"%}
      {% endblock %}
-    </header> -->
+    </header>
   </div>
   <script>
-//  $(function(){
-//  $(".wp-pagenavi").my_page("pageform");
-// });
-</script>
-<script src="/static/js/bootstrap.min.js"></script>
-<script src="/static/js/jquery.colorbox.min.js"></script>
-<script src="/static/js/isotope.pkgd.min.js"></script>
-<script>
-var $container = $('.container');
-// init
-$container.isotope({
-  // options
-  itemSelector: '.item-box',
-  layoutMode: 'fitRows'
+ $(function(){
+ $(".wp-pagenavi").my_page("pageform");
 });
 </script>
-
 </body>
 </html>

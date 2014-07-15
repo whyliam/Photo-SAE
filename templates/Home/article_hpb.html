@@ -1,0 +1,53 @@
+{% macro input(id, title, article, color, time, location, content,  photos, heros) -%} 
+<article class="{{article}} {{color}} row">
+        <a name="gallery-{{id}}" ></a>
+        <div class="divider-top">
+        &nbsp;
+        </div> 
+
+        <div class="inner col-md-6 col-md-offset-2"> 
+        <!-- portrait photo --> 
+                <div class="row">
+                        <div class="hero col-md-7"> 
+                                {%for href, src, alt in heros%}
+                                <a href="{{href}}" rel="gallery-{{id}}" class="cboxElement"><img src="{{src}}" alt="{{alt}}" /></a> 
+                                {%endfor%} 
+                        </div> 
+
+                       <section class="col-md-5"> 
+                                <header> 
+                                <h2><a href="{{time}}/{{id}}">{{title}}</a></h2> 
+                                </header> 
+
+                                <footer> 
+                                        <span class="glyphicon glyphicon-time"></span><time datetime="{{time}}"><a href="#{{id}}"><span>  {{time}}</span></a></time> 
+                                        <span class="glyphicon glyphicon-globe"></span><a href="#" title="{{location}}">  {{location}}</a>
+                                </footer> 
+
+                                <div class="clearfix"></div> 
+                                
+                                <div class="post"> 
+                                <p>
+                                {{content}}
+                                </p>
+                                </div> 
+                        </section> 
+                </div>
+                <div class="row">
+                    <div class="col-md-12 container" style="margin-top: 40px;">
+                            {%for href, srcs, alts in photos%}
+                            <div class="item-box"> 
+                            <a href="{{href}}" rel="gallery-{{id}}" class="cboxElement"><img src="{{srcs}}" alt="{{alt}}" /></a> 
+                            </div> 
+                            {%endfor%}
+                    </div> 
+                </div>
+        <!-- /landscape photo --> 
+        <!-- question --> 
+                <div class="clearfix"></div> 
+        </div>
+        <div class="divider-bottom">
+        &nbsp;
+        </div> 
+</article> 
+{%- endmacro %} 

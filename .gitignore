@@ -1,0 +1,10 @@
+
+uploads/*
+*.pyc
+*.wsgic
+
+run.sh
+node_modules/*
+src/*
+*.log
+.sass-cache/*
