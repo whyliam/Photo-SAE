@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-  <title>{{g.title}}</title>
+{% extends "_layout.html" %} 
 
-  {% include "header.html"%}
+{% block content %}
 
-  </head>
-
-<body>
-
-  <div>
     <!-- My Self -->
     {% if currentPage == 1 %}
     {% include "Home/myself.html"%}
@@ -40,47 +32,54 @@
 
     {% endfor %}
     <!-- End wrapper -->
-<!--     <article class="content">
-      <div class="divider-top">&nbsp;</div>
-      <div class="inner">
-        <div class="wp-pagenavi" url="./"  
-            currentPage="{{currentPage}}" 
-            pageCount="{{pageCount}}" >
-          <form name="pageform" method="post"></form>
-          </div>
-      </div>
-      <div class="divider-top">&nbsp;</div>
+    <article class="row">
+        <div class="divider-top">
+            &nbsp;
+        </div>
+        <div class="inner col-md-6 col-md-offset-2">
+            <nav class="text-left">
+                <div id="paginator"></div>
+            </nav>
+        </div>
+        <div class="divider-bottom">&nbsp;</div>
     </article>
- -->    
-<!--     <footer id="footer">
-      {% block footer %}
-      {% include "Home/footer.html"%}
-      {% endblock %}
-    </footer>
- -->
-<!--     <header role="banner">
-      {% block banner %}
-     {% include "Home/banner.html"%}
-     {% endblock %}
-    </header> -->
-  </div>
-  <script>
-//  $(function(){
-//  $(".wp-pagenavi").my_page("pageform");
-// });
-</script>
-<script src="/static/js/bootstrap.min.js"></script>
-<script src="/static/js/jquery.colorbox.min.js"></script>
-<script src="/static/js/isotope.pkgd.min.js"></script>
+
+{% endblock %}
+
+{% block js %}
+
 <script>
-var $container = $('.container');
-// init
-$container.isotope({
-  // options
-  itemSelector: '.item-box',
-  layoutMode: 'fitRows'
+var $container = $('.article-photos');
+
+$container.imagesLoaded( function(){
+  $container.masonry({
+    itemSelector : '.item-box'
+  });
 });
+
+var options = {
+    currentPage: {{currentPage}},
+    totalPages: {{pageCount}},
+    numberOfPages: 10,
+    itemTexts: function (type, page, current) {
+      switch (type) {
+      case "first":
+      return "第一页";
+      case "prev":
+      return "<";
+      case "next":
+      return ">";
+      case "last":
+      return "最后页";
+      case "page":
+      return  page;
+      }               
+    },
+    pageUrl: function(type, page, current){
+                return "/page="+page;
+            }}
+
+$('#paginator').bootstrapPaginator(options);
 </script>
 
-</body>
-</html>
+{% endblock %}

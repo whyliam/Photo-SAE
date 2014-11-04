@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{{g.title}}</title>
+    {% include "header.html"%}
+</head>
+
+<body>
+    <div class="container-fluid">
+        <header role="banner">
+            {% include "banner.html"%}
+        </header>
+        {% block content %}{% endblock %}
+        <footer>
+            {% include "footer.html"%}
+        </footer>
+    </div>
+    {% block js %}{% endblock %}
+</body>
+
+</html>

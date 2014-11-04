@@ -1,3 +1,8 @@
+body {
+  background: url("../imgs/bg.jpg") repeat 0 0;
+  color: #333;
+}
+
 article, .archive-post {
   background: url("../imgs/pattern.png") repeat 0 0;
 }
@@ -31,16 +36,18 @@ article img {
   background: #f2f8f9;
   padding: 10px;
   width: 100%;
-}
-
-#masonry {
-  clear: both;
-  position: relative;
+  -webkit-box-shadow: 0 1px 5px #666;
+  box-shadow: 0 1px 5px #666;
+  -moz-transition: background 0.2s ease-in;
+  -webkit-transition: background 0.2s ease-in;
+  transition: background 0.2s ease-in;
 }
 
 .item-box {
-  width: 162px;
-  margin: 0px 10px 110px 0px;
+  max-width: 153px;
+  height: auto;
+  /*min-height: 104px;*/
+  margin: 0px 10px 17px 0px;
 }
 
 .item-box img {
@@ -82,9 +89,106 @@ article.hpb section {
 /*full picture blog*/
 article.fpb section {
   display: inline;
-  width: 362px;
   margin-bottom: 15px;
   margin-top: -20px;
+}
+
+#logo-footer {
+  float: left;
+  display: inline;
+  font-size: 38px;
+  text-transform: uppercase;
+}
+
+footer nav {
+  float: right;
+  display: inline;
+  font-size: 13px;
+  text-align: right;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+footer nav ul li {
+  display: inline;
+  margin: 0;
+  padding: 0 7px 0 0;
+  border-right: 1px solid #86827d;
+}
+
+.pagination ul {
+  display: inline-block;
+  margin-bottom: 0;
+  margin-left: 0;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  opacity: .75;
+}
+
+.pagination ul > li {
+  display: inline;
+  margin: 3px;
+  padding: 8px 7px;
+  font-weight: bold;
+  text-decoration: none;
+  text-shadow: none;
+  text-transform: uppercase;
+  color: #726f6c;
+  background: #dfdbd7;
+  border: none;
+  -moz-box-shadow: 0 1px 3px #928e88;
+  -webkit-box-shadow: 0 1px 3px #928e88;
+  box-shadow: 0 1px 3px #928e88;
+}
+
+header[role="banner"] {
+  width: 960px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+#header-top {
+  position: fixed;
+  width: 960px;
+  height: 710px;
+  top: 0;
+  margin-left: 780px;
+  background: url("../imgs/header-top.png") no-repeat 0 0;
+  z-index: 999;
+}
+
+#header-bottom {
+  position: fixed;
+  width: 960px;
+  height: 100%;
+  top: 610px;
+  margin-left: 780px;
+  background: url("../imgs/header-bg.png") no-repeat 0 0;
+  z-index: 1;
+}
+
+#logo {
+  width: 130px;
+  height: 355px;
+  margin: 40px 0 0 50px;
+  overflow: hidden;
+}
+
+#logo a {
+  display: block;
+  width: 355px;
+  height: 0;
+  padding-top: 355px;
+}
+
+a img:link, a img:hover {
+  background: transparent;
 }
 
 /*# sourceMappingURL=style.css.map */

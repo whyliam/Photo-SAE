@@ -1,10 +1,9 @@
-
-uploads/*
+*.log
 *.pyc
 *.wsgic
-
 run.sh
-node_modules/*
 src/*
-*.log
+
 .sass-cache/*
+uploads/*
+node_modules/*

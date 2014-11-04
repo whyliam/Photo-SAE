@@ -1,3 +1,17 @@
-dev_server.py --mysql=root:admin@localhost:3306 --storage-path=地址
+新浪SAE相册系统
+---
 
-photo.naaln.com
+####11/06/2014 更新
+1. 重构了主页 
+2. 精简了前端代码
+3. 分离了MVC
+4. 精简了图片模板
+5. 使用SASS，Grunt 等前端工具构建代码 
+6. 模块化主页
+
+待完成:
+
+1. 后台的重写
+2. 平台自适应
+
+演示主页:<http://photo.naaln.com/>

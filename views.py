@@ -34,7 +34,7 @@ def load_web():
 def index(page=1):
     mess = Posts.get_news_by_page(page)
     pageCount = Posts.get_per_count(page)
-    return render_template('Home/index.html', msgs=mess, currentPage=page, pageCount=pageCount)
+    return render_template('Home/index.html', msgs=mess, currentPage=page, pageCount=5)
 
 
 # @app.route('/search/<q>')
@@ -66,41 +66,49 @@ def index(page=1):
 #     return render_template('Home/index.html', msgs=tuple(blogs))
 
 
-# @app.route('/login', methods=['GET', 'POST'])
-# def login():
-#     error = None
-#     if request.method == 'POST':
-#         name = request.form['username']
-#         password = request.form['password']
-#         msg = Users.login(name, password)
-#         if (msg['state'] =='successed'):
-#             session['logged_in'] = True
-#             session['username'] = name
-#             return redirect(url_for('new'))
-#         else:
-#             flash(msg['message'])
-#             error = msg['message']
-#             print error
-#     return render_template('Login/login.html', error=error)
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    error = None
+    if request.method == 'POST':
+        name = request.form['username']
+        password = request.form['password']
+        msg = Users.login(name, password)
+        if (msg['state'] == 'successed'):
+            session['logged_in'] = True
+            session['username'] = name
+            return redirect(url_for('newpost'))
+        else:
+            flash(msg['message'])
+            error = msg['message']
+    return render_template('Login/index.html')
 
 
-# @app.route('/logout')
-# def logout():
-#     session.pop('logged_in', None)
-#     flash('You were logged out')
-#     return redirect(url_for('index'))
+@app.route('/logout')
+def logout():
+    session.pop('logged_in', None)
+    flash('You were logged out')
+    return redirect(url_for('index'))
 
 
-# @app.route('/new')
-# def new():
-#     if not session.get('logged_in'):
-#         return redirect(url_for('login'))
-#     msgs = Posts.get_all_posts()
-#     return render_template('New/new.html', msgs=tuple(msgs))
+@app.route('/newpost', methods=['GET', 'POST']) 
+def newpost():
+    # if not session.get('logged_in'):
+    #     return redirect(url_for('login'))
+    if request.method == 'POST':
+        title = request.form['title']
+        date = request.form['date']
+        local = request.form['local']
+        tags = request.form['tags']
+        content = request.form['content']
+        print title, date, local, ttags
+        return render_template('New/index.html')
+
+    return render_template('New/index.html')
 
 
 # def allowed_file(filename):
-#     return '.' in filename and filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
+# return '.' in filename and filename.rsplit('.', 1)[1] in
+# ALLOWED_EXTENSIONS
 
 
 # def save_name(filename, size):
@@ -108,7 +116,7 @@ def index(page=1):
 #     d = filename.rsplit('.', 1)[0]
 #     fn = time.strftime('%Y%m%d%H%M%S')
 #     fn = fn + '_%d' % random.randint(0, 100)
-#     # 重写合成文件名
+# 重写合成文件名
 #     name = os.path.join(d + size + fn + "." + ext)
 #     return name
 
@@ -145,7 +153,7 @@ def index(page=1):
 #     tags.split(" ")
 #     tags = "'" + tags + "'"
 
-#     # tags = tuple(tags)
+# tags = tuple(tags)
 
 #     hero = request.files['hero']
 #     uploaded_files = request.files.getlist("hero[]")
@@ -179,9 +187,9 @@ def index(page=1):
 #         bucket.put_object(o_image, output.getvalue())
 #         output.close()
 #         href = "'" + bucket.generate_url(o_image) + "'"
-#         (x, y) = im.size  # read image size
-#         y_s = y * x_s / x  # calc height based on standard width
-#         # resize image with high-quality
+# (x, y) = im.size  # read image size
+# y_s = y * x_s / x  # calc height based on standard width
+# resize image with high-quality
 #         out = im.resize((x_s, y_s), Image.ANTIALIAS)
 #         s_image = save_name(filename, "_s_")
 #         output = StringIO.StringIO()
@@ -211,11 +219,11 @@ def index(page=1):
 #                 bucket.put_object(o_image, output.getvalue())
 #                 output.close()
 #                 href = "'" + bucket.generate_url(o_image) + "'"
-#                 #file.save(os.path.join(app.config['UPLOAD_FOLDER'], o_image))
-#                 (x, y) = im.size  # read image size
-#                 x_s = 146  # define standard widt
-#                 y_s = y * x_s / x  # calc height based on standard width
-#                 # resize image with high-quality
+# file.save(os.path.join(app.config['UPLOAD_FOLDER'], o_image))
+# (x, y) = im.size  # read image size
+# x_s = 146  # define standard widt
+# y_s = y * x_s / x  # calc height based on standard width
+# resize image with high-quality
 #                 out = im.resize((x_s, y_s), Image.ANTIALIAS)
 #                 s_image = save_name(filename, "_s_")
 #                 output = StringIO.StringIO()
@@ -223,9 +231,9 @@ def index(page=1):
 #                 bucket.put_object(s_image, output.getvalue())
 #                 output.close()
 #                 src = "'" + bucket.generate_url(s_image) + "'"
-#                 #out.save(os.path.join(app.config['UPLOAD_FOLDER'], s_image))
-#                 #href = "'uploads/"+o_image+"'"
-#                 #src = "'uploads/"+s_image+"'"
+# out.save(os.path.join(app.config['UPLOAD_FOLDER'], s_image))
+# href = "'uploads/"+o_image+"'"
+# src = "'uploads/"+s_image+"'"
 #                 c.execute(
 #                     'INSERT INTO `naaln_photo` (`id`, `blog_id`, `href`, `src`) VALUES (NULL, %s, %s, %s '');' %
 #                     (bid, href, src))
@@ -246,7 +254,7 @@ def index(page=1):
 #         ttags = tags
 #         tags = []
 #         for tag in ttags.split(" "):
-#             # tag = [tag]
+# tag = [tag]
 #             tags.append(tag)
 #         c.execute(
 #             'SELECT `photo_id` FROM `naaln_hero` WHERE `blog_id` = %s' % id)
@@ -261,11 +269,12 @@ def index(page=1):
 #         blog = [id, title, subname, article, color, hero,
 #                 time, location, content, tuple(tags), photos, pictures]
 #         blogs.append(blog)
-#     # print blogs
+# print blogs
 #     return render_template('Paper/index.html', msgs=tuple(blogs))
 
 
 # @app.route('/<int:y>-<int:m>-<int:d>/<k>')
 # def repaper(y, m, d, k):
 #     print y, m, d, k
-#     return redirect('/' + str(y) + '/' + str(m) + '/' + str(d) + '/' + k, 302)
+# return redirect('/' + str(y) + '/' + str(m) + '/' + str(d) + '/' + k,
+# 302)

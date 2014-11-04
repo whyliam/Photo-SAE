@@ -1,24 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <link href="{{url_for('static', filename='css/bootstrap.min.css')}}"  rel="stylesheet">
-  </head>
-  <body>
-    <div class="container">
-      <div class="header">
-        <h3 class="text-muted">How To Upload a File. http://www.sharejs.com</h3>
-      </div>
-      <hr/>
-      <div>
-       
-      <form action="up" method="post" enctype="multipart/form-data">
-        <input type="file" multiple="" name="file[]" class="span3" /><br />
-        <input type="file" multiple="" name="file[]" class="span3" /><br />
-        <input type="file" multiple="" name="file[]" class="span3" /><br />
+{% extends "_layout.html" %} 
 
-        <input type="submit" value="Upload"  class="span2">
-      </form>
-      </div>
-    </div>
-  </body>
-</html>
+{% block content %}
+
+    <article class="row">
+        <div class="divider-top">
+            &nbsp;
+        </div>
+        <div class="inner col-md-5 col-md-offset-2">
+          <form class="form-horizontal row" action="/newpost" method="POST">
+            <div class="col-md-8">
+              <div class="form-group">
+                  title:<input name="title" placeholder="title" class="form-control" />
+              </div>
+              <div class="form-group">
+              <textarea name="content" class="form-control" rows="10"></textarea>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-group">
+                  date:<input name="date" type="date" placeholder="date" class="form-control" />
+              </div>
+              <div class="form-group">
+                  local:<input name="local" type="text" placeholder="local" class="form-control" />
+              </div>
+              <div class="form-group">
+                  tags:<input name="tags" type="text" placeholder="tags" class="form-control" />
+              </div>
+
+            </div>
+            
+              <div class="form-group text-center">
+                  <button type="submit" class="btn btn-default">Sign in</button>
+              </div>
+          </form>
+        </div>
+        <div class="divider-bottom">
+          &nbsp;
+        </div>
+    </article>
+
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}
