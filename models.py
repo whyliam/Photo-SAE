@@ -105,10 +105,10 @@ class Posts:
 
 
 class Photos:
+
     @staticmethod
     def add_a_photo(file):
         Upload.upload_image(file)
-
 
     @staticmethod
     def get_photos_by_pid(id):
@@ -119,8 +119,6 @@ class Photos:
         photos = list(c.fetchall())
         c.close()
         return photos
-
-
 
 
 class Users:
@@ -151,6 +149,7 @@ class Users:
             msg['message'] = 'Invalid username'
         return msg
 
+
 class Upload:
 
     @staticmethod
@@ -169,20 +168,20 @@ class Upload:
         if int(x_s) == int(y_s) and y_s > 0:
             if x > y:
                 x_s = x * y_s / y
-                x_c = (x_s - y_s) / 2 
+                x_c = (x_s - y_s) / 2
                 y_c = 0
-                x_d = x_c+y_s
+                x_d = x_c + y_s
                 y_d = y_s
 
             else:
                 y_s = y * x_s / x
                 x_c = 0
-                y_c = (y_s - x_s) / 2 
+                y_c = (y_s - x_s) / 2
                 x_d = x_s
-                y_d = y_c +x_s
+                y_d = y_c + x_s
 
             out = im.resize((x_s, y_s), Image.ANTIALIAS)
-            box = (x_c, y_c, x_d,y_d)
+            box = (x_c, y_c, x_d, y_d)
             out = out.crop(box)
         elif x_s > 0:
             y_s = y * x_s / x
@@ -197,7 +196,6 @@ class Upload:
 
         bucket.put_object(s_image, output.getvalue())
         output.close()
-        # url = "'" + bucket.generate_url(s_image) + "'"
         url = bucket.generate_url(s_image)
 
         return url

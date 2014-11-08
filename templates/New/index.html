@@ -10,22 +10,30 @@
           <form class="form-horizontal row" action="/newpost" method="POST">
             <div class="col-md-8">
               <div class="form-group">
-                  title:<input name="title" placeholder="title" class="form-control" />
+                  <input name="title" placeholder="标题" class="form-control" />
               </div>
               <div class="form-group">
-              <textarea name="content" class="form-control" rows="10"></textarea>
+              <textarea name="content" class="form-control" rows="10">说点什么</textarea>
               </div>
             </div>
 
             <div class="col-md-4">
               <div class="form-group">
-                  date:<input name="date" type="date" placeholder="date" class="form-control" />
+                  <input name="date" type="date" placeholder="日期" class="form-control" />
               </div>
               <div class="form-group">
-                  local:<input name="local" type="text" placeholder="local" class="form-control" />
+                  <input name="local" type="text" placeholder="地点" class="form-control" />
               </div>
               <div class="form-group">
-                  tags:<input name="tags" type="text" placeholder="tags" class="form-control" />
+                  <input name="tags" type="text" placeholder="标签" class="form-control" />
+              </div>
+              <div class="form-group">
+                    <label for="hero">主要图片</label>
+                    <input id="hero" type="file" multiple="" name="hero" required="required" class="form-control" />
+              </div>
+              <div class="form-group">
+                    <label for="hero[]">其他图片</label>
+                    <input id="hero[]" type="file" multiple="" name="hero[]" class="form-control" />
               </div>
 
             </div>

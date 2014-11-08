@@ -8,9 +8,8 @@ module.exports = function(grunt) {
           style: 'expanded'
         },
         files: {                         // Dictionary of files
-          'static/css/style.css': 'src/css/home-style.scss',       // 'destination': 'source'
+          'static/css/style.css': 'src/css/style.scss',       // 'destination': 'source'
           'static/css/bootstrap.min.css': 'src/css/bootstrap.scss',       // 'destination': 'source'
-          'static/css/jquery.colorbox.min.css': 'src/css/jquery.colorbox.scss',       // 'destination': 'source'
         }
       }
     },

@@ -90,7 +90,7 @@ def logout():
     return redirect(url_for('index'))
 
 
-@app.route('/newpost', methods=['GET', 'POST']) 
+@app.route('/newpost', methods=['GET', 'POST'])
 def newpost():
     # if not session.get('logged_in'):
     #     return redirect(url_for('login'))
