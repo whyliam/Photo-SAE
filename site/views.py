@@ -6,12 +6,13 @@ import os
 import sys
 from flask import Flask, request, session, g, redirect, url_for, \
     abort, render_template, flash, send_from_directory
-
+import json
+import time
 # configuration
 
 import sae.const
 
-from models import Posts, Users
+from models import Posts, Users, Photos, Upload
 from setting import *
 # create our little application :)
 app = Flask(__name__)
@@ -27,6 +28,7 @@ def favicon():
 @app.before_request
 def load_web():
     g.title = 'Why · Liam · Photo '
+    g.userid = session.get('userid')
 
 
 @app.route('/')
@@ -74,6 +76,7 @@ def login():
         password = request.form['password']
         msg = Users.login(name, password)
         if (msg['state'] == 'successed'):
+            session['userid'] = msg['id']
             session['logged_in'] = True
             session['username'] = name
             return redirect(url_for('newpost'))
@@ -92,19 +95,44 @@ def logout():
 
 @app.route('/newpost', methods=['GET', 'POST'])
 def newpost():
-    # if not session.get('logged_in'):
-    #     return redirect(url_for('login'))
+    if not session.get('logged_in'):
+        return redirect(url_for('login'))
+    userid = session.get('userid')
+    rannew = time.time()
     if request.method == 'POST':
         title = request.form['title']
         date = request.form['date']
         local = request.form['local']
         tags = request.form['tags']
+        rannew = request.form['rannew']
         content = request.form['content']
-        print title, date, local, ttags
-        return render_template('New/index.html')
+        Posts.add_a_post(title, date, local, tags, content, userid, rannew)
+        return redirect(url_for('index'))
 
-    return render_template('New/index.html')
+    return render_template('New/index.html', rannew=rannew)
 
+
+@app.route('/uploadimg', methods=['GET', 'POST'])
+def uploadimg(x_s=0, y_s=0):
+    if request.method == 'POST':
+        userid = session.get('userid')
+        x_s = request.form['x_s']
+        y_s = request.form['y_s']
+        rannew = request.form['rannew']
+        hero = request.form['hero']
+        photo = request.files['heroupload']
+        alt = ''
+        if photo:
+            img_x_y = Upload.img_x_y(photo)
+            href = Upload.upload_image(photo, '_o_', 0, 800)
+            src = Upload.upload_image(photo, '_s_', x_s, y_s)
+            Photos.add_a_photo(href, src, alt, img_x_y * hero, userid, rannew)
+
+            return json.dumps({'error': 0, 'url': src})
+        else:
+            flash('请上传正确的照片')
+            return json.dumps({'error': 1, 'info': '请上传正确的照片'})
+    return render_template("uploadimg.html")
 
 # def allowed_file(filename):
 # return '.' in filename and filename.rsplit('.', 1)[1] in

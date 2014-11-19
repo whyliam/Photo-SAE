@@ -1,5 +1,5 @@
 {% macro input(id, title, article, color, time, location, content, photos, heros) -%} 
-<article class="{{article}} {{color}} row">
+<article class="home {{article}} {{color}} row">
     <a name="gallery-{{id}}"  ></a>
     <div class="divider-top">
         &nbsp;
@@ -15,14 +15,14 @@
             </div> 
         </div>
         <div class="row" style="margin-top: 40px;">
-            <div class="col-md-6 article-photos">
+            <div class="col-md-6 article-photos" style="width: 52%;">
                 {%for href, src, alt in photos%}
                 <div class="item-box"> 
                 <a href="{{href}}" rel="gallery-{{id}}" class="cboxElement"><img src="{{src}}" alt="{{alt}}" /></a> 
                 </div> 
                 {%endfor%}
             </div> 
-            <section class="col-md-6"> 
+            <section class="col-md-6" style="width: 48%;"> 
                 <header> 
                     <h2><a href="{{time}}/{{id}}">{{title}}</a></h2>  
                 </header> 
