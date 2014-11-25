@@ -1,0 +1,71 @@
+
+section a:link, section a:visited, section a:active {
+    color: #333;
+    text-decoration: none;
+    -moz-transition: color 0.2s ease-in;
+    -webkit-transition: color 0.2s ease-in;
+    transition: color 0.2s ease-in;
+}
+section .post {
+    background: url('../imgs/divider-dashed@2x.png') repeat-x 0 0;
+    background-size: 6px 2px;
+    padding-top: 5px;
+}
+article.home img {
+    background: #f2f8f9;
+    padding: 10px;
+    width: 100%;
+    -webkit-box-shadow: 0 1px 5px #666;
+    box-shadow: 0 1px 5px #666;
+    -moz-transition: background 0.2s ease-in;
+    -webkit-transition: background 0.2s ease-in;
+    transition: background 0.2s ease-in;
+}
+article.home .item-box {
+    max-width: 161px;
+    height: auto;
+    margin: 0px 9px 12px 0px;
+}
+article.home .item-box img {
+    padding: 5px;
+}
+/*article color*/
+
+article.orange, .archive-post.orange {
+    text-shadow: 0 1px 1px #ded1c6;
+    background-color: #e3c3a9;
+}
+article.blue, .archive-post.blue {
+    text-shadow: 0 1px 1px #c9cdce;
+    background-color: #c7cfd1;
+}
+article.yellow, .archive-post.yellow {
+    text-shadow: 0 1px 1px #fffceb;
+    background-color: #fff4d4;
+}
+article.pink, .archive-post.pink {
+    text-shadow: 0 1px 1px #dbc1bf;
+    background-color: #e7b2ae;
+}
+article.brown, .archive-post.brown {
+    text-shadow: 0 1px 1px #f0e9df;
+    background-color: #d3c6b6;
+}
+/*helf picture blog*/
+
+article.hpb section {
+    display: inline;
+    margin-top: -20px;
+}
+/*full picture blog*/
+
+article.fpb section {
+    display: inline;
+    margin-bottom: 15px;
+    margin-top: -20px;
+}
+
+
+a img:link, a img:hover {
+    background: transparent;
+}
