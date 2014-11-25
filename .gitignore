@@ -2,7 +2,6 @@
 *.pyc
 *.wsgic
 run.sh
-src/*
 
 .sass-cache/*
 upload/*

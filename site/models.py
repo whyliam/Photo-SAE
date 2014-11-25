@@ -48,7 +48,7 @@ class Posts:
         c = conn.cursor()
         pic_count = Photos.get_count_by_rannew(userid, rannew)
         pic_hero = Photos.get_count_by_rannew(userid, rannew)
-        if pic_count==1 or (pic_count > 6 and len(content)<250) or (pic_hero > 1):
+        if pic_count == 1 or (pic_count > 6 and len(content) < 250) or (pic_hero > 1):
             article = 'hpb'
         else:
             article = 'fpb'
