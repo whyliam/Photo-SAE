@@ -57,6 +57,13 @@ $container.imagesLoaded( function(){
   });
 });
 
+$(".cboxElement").colorbox({
+  transition:"elastic",
+  scrolling:false,
+  opacity:0.2,
+  maxHeight:"680px"
+});  
+
 var options = {
     currentPage: {{currentPage}},
     totalPages: {{pageCount}},

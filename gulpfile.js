@@ -19,15 +19,12 @@ var sass = require('gulp-ruby-sass'),
 
 gulp.task('styles', function() {
   return gulp.src('./src/scss/style.scss')
-    .pipe(sass({ style: 'expanded' }))
+    .pipe(sass({ style: 'compressed', 'sourcemap=none': true, 'compass': true }))
     .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
-    .pipe(gulp.dest('./site/static/css'))
     .pipe(rename({suffix: '.min'}))
-    .pipe(minifycss())
     .pipe(gulp.dest('./site/static/css'))
     .pipe(notify({ message: 'Styles task complete' }));
 });
-
 
 //拼接、简化JS文件   
 
@@ -71,3 +68,9 @@ gulp.task('default',function(){
     livereload.listen();
     gulp.watch(['site/**']).on('change', livereload.changed);
 });  
+
+// Handle the error
+function errorHandler (error) {
+  console.log(error.toString());
+  this.emit('end');
+}
