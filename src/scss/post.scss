@@ -31,25 +31,48 @@ article.home .item-box img {
 }
 /*article color*/
 
-article.orange, .archive-post.orange {
-    text-shadow: 0 1px 1px #ded1c6;
-    background-color: #e3c3a9;
+article.s-d-yellow, .archive-post.s-d-yellow {
+    text-shadow: 0 1px 1px rgba(42,42,21, 0.3);
+    background-color: #cccc99;
 }
-article.blue, .archive-post.blue {
-    text-shadow: 0 1px 1px #c9cdce;
-    background-color: #c7cfd1;
+article.g-orange, .archive-post.g-orange {
+    text-shadow: 0 1px 1px rgba(40, 33, 28, 0.3);
+    background-color: #d2c8bf;
 }
-article.yellow, .archive-post.yellow {
-    text-shadow: 0 1px 1px #fffceb;
-    background-color: #fff4d4;
+article.v-s-orange, .archive-post.v-s-orange {
+    text-shadow: 0 1px 1px rgba(53, 38, 16, 0.3);
+
+    background-color: #e1c69e;
 }
-article.pink, .archive-post.pink {
-    text-shadow: 0 1px 1px #dbc1bf;
-    background-color: #e7b2ae;
+article.g-magenta, .archive-post.g-magenta {
+    text-shadow: 0 1px 1px rgba(35, 25, 34, 0.3);
+
+    background-color: #d6c7d5;
 }
-article.brown, .archive-post.brown {
-    text-shadow: 0 1px 1px #f0e9df;
-    background-color: #d3c6b6;
+article.g-yellow, .archive-post.g-yellow {
+    text-shadow: 0 1px 1px rgba(35, 25, 34, 0.3);
+
+    background-color: #c7c7bd;
+}
+article.l-gray, .archive-post.l-gray {
+    text-shadow: 0 1px 1px rgba(31, 31, 31, 0.3);
+
+    background-color: #c6c6c6;
+}
+article.g-violet, .archive-post.g-violet {
+    text-shadow: 0 1px 1px rgba(35, 33, 39, 0.3);
+
+    background-color: #c9c6cf;
+}
+article.g-red, .archive-post.g-red {
+    text-shadow: 0 1px 1px rgba(35, 33, 33, 0.3);
+
+    background-color: #cac7c7;
+}
+article.g-pink, .archive-post.g-pink {
+    text-shadow: 0 1px 1px rgba(42, 31, 35, 0.3);
+
+    background-color: #d3c4c9;
 }
 /*helf picture blog*/
 

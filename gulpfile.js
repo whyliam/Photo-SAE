@@ -68,9 +68,3 @@ gulp.task('default',function(){
     livereload.listen();
     gulp.watch(['site/**']).on('change', livereload.changed);
 });  
-
-// Handle the error
-function errorHandler (error) {
-  console.log(error.toString());
-  this.emit('end');
-}

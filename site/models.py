@@ -53,7 +53,7 @@ class Posts:
         else:
             article = 'fpb'
         color = random.choice(
-            ('blue', 'brown', 'green', 'orange', 'pink', 'purple', 'yellow'))
+            ('s-d-yellow', 'g-orange', 'v-s-orange', 'g-magenta', 'g-yellow', 'l-gray', 'g-violet', 'g-red', 'g-pink'))
         naaln_posts = (title, article, color, time, location, content, tags)
         c.execute(
             "INSERT INTO `naaln_posts` (`title`, `article`, `color`, `time`, `location`, `content`, `tags`) \
