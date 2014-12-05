@@ -3,6 +3,6 @@
 *.wsgic
 run.sh
 
-.sass-cache/*
+.sass-cache/
 upload/*
-node_modules/*
+node_modules/
