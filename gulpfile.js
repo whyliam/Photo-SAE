@@ -53,7 +53,8 @@ gulp.task('images', function() {
 
 //默认任务   
 gulp.task('default',function(){
-    gulp.run('styles','scripts','images');
+    gulp.run('styles','scripts');
+    // gulp.run('styles','scripts','images');
 
     //监视我们JS文件的变化   
     gulp.task('watch', function() {
@@ -62,7 +63,7 @@ gulp.task('default',function(){
         // Watch .js files
         gulp.watch('src/js/*.js', ['scripts']);
         // Watch image files
-        gulp.watch('src/images/*', ['images']);
+        // gulp.watch('src/images/*', ['images']);
     });
 
     livereload.listen();

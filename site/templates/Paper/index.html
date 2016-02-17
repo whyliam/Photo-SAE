@@ -1,78 +1,78 @@
-{%for id, title, subname, article, color, hero, time, location, content, tags, photos, heros in msgs%}
-<!DOCTYPE html>
-<html lang="en">
-<header>
-<title>{{title}}</title>
-  {% block header %}
-  {% include "/Home/header.html"%}
-  {% endblock %}
-</header>
-    
-    <body class="single single-post postid-4490 single-format-standard" data-twttr-rendered="true">
-        <!-- AdPacks.com Ad Code -->
-        <!-- /AdPacks.com Ad Code -->
-        <!-- wrapper -->
-        <div id="wrapper">
-            <article class="{{article}} {{color}}">
-                <div class="divider-top">
-                    &nbsp;
-                </div>
-                <div class="inner">
-                    <!-- photo -->
-                    <section>
-                        <header>
-                            <h1>
-                                {{title}}
-                            </h1>
-                        </header>
-                        <footer>
-                            <time datetime="{{time}}">
-                                <span>
-                                    {{time}}
-                                </span>
-                            </time>
-                            <div class="comments-link">
-                                <a href="#" title="Comment on Lola">{{location}}</a>
-                            </div>
-                        </footer>
-                        <div class="clearfix">
-                        </div>
-                        <div class="post">
-                            <p>{{content}}
-                        </div>
-                    </section>
-                    <div class="images">
-		{%for href, src, alt in heros%}
-		<a href="{{href}}" rel="gallery-{{id}}" class="cboxElement" ><img src="{{href}}" alt="{{alt}}" style="max-width: 97.2527473%;"/></a> 
-		{%endfor%} 
-		{%for href, srcs, alts in photos%}
-		<a href="{{href}}" rel="gallery-{{id}}" class="cboxElement" ><img src="{{href}}" alt="{{alt}}" style="max-width: 97.2527473%;"/>
-		</a> 
-		{%endfor%}               
+{% extends "_layout.html" %} 
+
+
+
+{% block content %}
+{% for id, title, article, color, time, location, content, photos, heros in mess%}
+<article class="paper row">
+    <a name="gallery-{{id}}" ></a>
+    <div class="divider-top">
+        &nbsp;
+    </div> 
+    <div class="inner col-md-offset-2 col-md-6">
+        <div class="row">
+            <section class="col-md-12"> 
+                    <header> 
+                        <h2><a href="/{{time|sdata}}/{{id}}">{{title}}</a></h2> 
+                    </header> 
+
+                    <div class="clearfix"></div> 
+
+                    <footer> 
+                            <span class="glyphicon glyphicon-time"></span><time datetime="{{time}}"><a href="#{{id}}"><span>  {{time}}</span></a></time> 
+                            <span class="glyphicon glyphicon-globe"></span><a href="#" title="{{location}}">  {{location}}</a>
+                    </footer> 
+
+                    <div class="clearfix"></div> 
+                    
+                    <div class="post"> 
+                    <p>
+                        {{content}}
+                    </p>
+                    </div> 
+            </section>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 article-photos">
+                    {%for href, src, alt in heros%}
+                    <div class="item-box"> 
+                        <a href="{{href}}" rel="gallery-{{id}}" class="cboxElement">
+                        <img src="{{href}}" alt="{{alt}}" /></a> 
                     </div>
-                    <div class="tags">
-                    {%for tag in tags%}
-                        <a href="http://girlwithacamera.co.uk/tag/{{tag}}/" rel="tag">
-                            {{tag}}
-                        </a>
+                    {%endfor%} 
+
+                    {%for href, srcs, alts in photos%}
+                    <div class="item-box"> 
+                    <a href="{{href}}" rel="gallery-{{id}}" class="cboxElement">
+                    <img src="{{href}}" alt="{{alt}}" /></a> 
+                    </div> 
                     {%endfor%}
-                    </div>
-                    <!-- /photo -->
-                    <!-- blog -->
-                    <div class="clearfix">
-                    </div>
-                </div>
-                <div class="divider-bottom">
-                    &nbsp;
-                </div>
-            </article>
-            <!-- comments -->
-            <article id="comments" class="content">
-            <!-- 多说评论框 start -->
-    <div class="inner ds-thread" data-thread-key="{{id}}" data-title="{{title}}" data-url="{{time}}/{{title}}"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+            </div> 
+        </div>
+        <!-- /landscape photo --> 
+        <!-- question --> 
+        <div class="clearfix"></div>
+    
+
+        <!-- 多说评论框 start -->
+        <div class="inner ds-thread" data-thread-key="{{id}}" data-title="{{title}}" data-url="/{{time|sdata}}/{{id}}"></div>
+        <!-- 多说评论框 end -->
+    </div>
+</article>
+{%endfor%} 
+{% endblock %}
+
+{% block js %}
 <script type="text/javascript">
+$(".cboxElement").colorbox({
+  transition:"elastic",
+  scrolling:false,
+  opacity:0.2,
+  maxHeight:"680px"
+});  
+$('.inner img').colorbox();
+
 var duoshuoQuery = {short_name:"naalnalbum"};
     (function() {
         var ds = document.createElement('script');
@@ -82,21 +82,6 @@ var duoshuoQuery = {short_name:"naalnalbum"};
         (document.getElementsByTagName('head')[0] 
          || document.getElementsByTagName('body')[0]).appendChild(ds);
     })();
-    </script>
-<!-- 多说公共JS代码 end -->
-</article>
-            <!-- /comments -->
-    <footer id="footer"> 
-      {% block footer %}
-      {% include "Home/footer.html"%}
-      {% endblock %}
-    </footer>
+</script>
 
-    <header role="banner">
-     {% block banner %}
-     {% include "Home/banner.html"%}
-     {% endblock %}
-   </header>
- </div>
-</body>
-</html>{%endfor%}
+{% endblock %}

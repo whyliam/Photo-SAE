@@ -1,0 +1,34 @@
+article {
+    text-shadow: 0 1px 1px rgba(53, 38, 16, 0.3);
+}
+a img:link, a img:hover {
+    background: transparent;
+}
+
+article.paper .post {
+    padding-top: 10px;
+    line-height: 160%
+}
+
+article.paper img {
+    background: #f2f8f9;
+    padding: 10px;
+    width: 100%;
+    -webkit-box-shadow: 0 1px 5px #666;
+    box-shadow: 0 1px 5px #666;
+    -moz-transition: background 0.2s ease-in;
+    -webkit-transition: background 0.2s ease-in;
+    transition: background 0.2s ease-in;
+}
+
+article.paper .item-box {
+    max-width: 100%;
+    height: auto;
+    margin: 15px 0px 15px 0px;
+}
+
+article.paper footer {
+    background: url("../imgs/divider-dashed@2x.png") repeat-x 0 0;
+    background-size: 6px 2px;
+    padding-top: 5px;
+}

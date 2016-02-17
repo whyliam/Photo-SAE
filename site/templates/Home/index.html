@@ -64,6 +64,9 @@ $(".cboxElement").colorbox({
   maxHeight:"680px"
 });  
 
+
+$('.inner img').colorbox();
+
 var options = {
     currentPage: {{currentPage}},
     totalPages: {{pageCount}},
@@ -83,7 +86,7 @@ var options = {
       }               
     },
     pageUrl: function(type, page, current){
-                return "/page="+page;
+                return "{{pageurl}}"+page;
             }}
 
 $('#paginator').bootstrapPaginator(options);

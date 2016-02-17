@@ -76,10 +76,13 @@ class Posts:
         return count
 
     @staticmethod
-    def get_per_count(page):
-        page = page - 1
-        count = Posts.get_news_count()
+    def get_per_count(len=-1):
+        if len > 0:
+            count = len
+        else:
+            count = Posts.get_news_count()
         pagecount = (count - 1) / POSTS_PER_PAGE + 1
+        return pagecount
 
     @staticmethod
     def get_news_by_page(page):
@@ -94,8 +97,10 @@ class Posts:
         for id, title, article, color, time, location, content, tags in msgs:
             photos = Photos.get_photos_by_pid(id)
             length = len(photos)
+            photos1 = photos[1:length] if len(photos) > 0 else []
+            photos2 = [photos[0]] if photos else []
             blog = [id, title, article, color,
-                    time, location, content, photos[1:length], [photos[0]]]
+                    time, location, content, photos1, photos2]
             blogs.append(blog)
         mess = tuple(blogs)
         c.close()
@@ -111,6 +116,100 @@ class Posts:
         c.close()
 
         return msgs
+
+    @staticmethod
+    def get_a_post(uid):
+        conn = connect_db()
+        c = conn.cursor()
+        c.execute(
+            'SELECT `id`, `title`, `article`, `color`, `time`, `location`, `content`, `tags` \
+             FROM `naaln_posts` WHERE `id`=%s' % uid)
+        msgs = list(c.fetchall())
+        blogs = []
+        for id, title, article, color, time, location, content, tags in msgs:
+            photos = Photos.get_photos_by_pid(id)
+            length = len(photos)
+            photos1 = photos[1:length] if len(photos) > 0 else []
+            photos2 = [photos[0]] if photos else []
+            blog = [id, title, article, color,
+                    time, location, content, photos1, photos2]
+            blogs.append(blog)
+        mess = tuple(blogs)
+        c.close()
+        return mess
+
+    @staticmethod
+    def search_by_location(keyword):
+        conn = connect_db()
+        c = conn.cursor()
+        c.execute(
+            "SELECT `id` FROM `naaln_posts`  WHERE `location` LIKE '%%%s%%' ORDER BY `time`" % keyword)
+        ids = list(c.fetchall())
+        c.close()
+        return ids
+
+    @staticmethod
+    def search_by_title(keyword):
+        conn = connect_db()
+        c = conn.cursor()
+        c.execute(
+            "SELECT `id` FROM `naaln_posts` WHERE `title` LIKE '%%%s%%' ORDER BY `time`" % keyword)
+        ids = list(c.fetchall())
+        c.close()
+        return ids
+
+    @staticmethod
+    def search_by_content(keyword):
+        conn = connect_db()
+        c = conn.cursor()
+        c.execute(
+            "SELECT `id` FROM `naaln_posts` WHERE `content` LIKE '%%%s%%' ORDER BY `time`" % keyword)
+        ids = list(c.fetchall())
+        c.close()
+        return ids
+
+    @staticmethod
+    def search_keyword(keyword):
+        ids1 = Posts.search_by_location(keyword)
+        ids2 = Posts.search_by_title(keyword)
+        ids3 = Posts.search_by_content(keyword)
+        ids = ids1 + ids2 + ids3
+        news_ids = []
+        for id in ids:
+            if id not in news_ids:
+                news_ids.append(int(id[0]))
+        return news_ids
+
+    @staticmethod
+    def search_news_by_page(page, ids):
+        page = page - 1
+        begin_page = page * POSTS_PER_PAGE
+        end_page = page * POSTS_PER_PAGE + POSTS_PER_PAGE
+        if end_page > len(ids):
+            end_page = len(ids)
+        new_ids = tuple(ids)[begin_page:end_page]
+
+        conn = connect_db()
+        c = conn.cursor()
+        if len(ids) == 1:
+            c.execute(
+                'SELECT `id`, `title`, `article`, `color`, `time`, `location`, `content`, `tags` \
+            FROM `naaln_posts` WHERE `id` = %s' % ids[0])
+        else:
+            c.execute(
+                'SELECT `id`, `title`, `article`, `color`, `time`, `location`, `content`, `tags` \
+            FROM `naaln_posts` WHERE `id` in %s ORDER BY `time` DESC ' % (tuple(new_ids), ))
+        msgs = list(c.fetchall())
+        blogs = []
+        for id, title, article, color, time, location, content, tags in msgs:
+            photos = Photos.get_photos_by_pid(id)
+            length = len(photos)
+            blog = [id, title, article, color,
+                    time, location, content, photos[1:length], [photos[0]]]
+            blogs.append(blog)
+        mess = tuple(blogs)
+        c.close()
+        return mess
 
 
 class Photos:
